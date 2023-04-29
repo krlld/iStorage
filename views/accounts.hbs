@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <p class="fs-2">Регистрация</p>
+
+    <form method="post" id="form">
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="login">Логин</label>
+            <input
+                type="text"
+                class="form-control col-10"
+                placeholder="Логин"
+                maxlength="255"
+                name="login"
+                id="login"
+                required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="password">Пароль</label>
+            <input
+                type="text"
+                class="form-control col-10"
+                placeholder="Пароль"
+                maxlength="255"
+                name="password"
+                id="password"
+                required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="role">Роль</label>
+            <select class="form-select" name="roleId" required>
+                {{#each roles}}
+                    <option value="{{id}}">{{role}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <button
+            class="btn btn-outline-success"
+            type="submit"
+            formaction="/accounts/add"
+        >Добавить</button>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"><p class="fw-bold mb-1">ID</p></div>
+        <div class="col-5"><p class="fw-bold mb-1">Логин</p></div>
+        <div class="col-5"><p class="fw-bold mb-1">Роль</p></div>
+        <div class="col-1"><p class="fw-bold mb-1">Действие</p></div>
+    </div>
+    {{#each users}}
+        <form method="post" name="form" id="form{{id}}">
+            <div class="input-group mb-3">
+                <label class="input-group-text col-1">{{id}}</label>
+                <input type="hidden" name="id" value="{{id}}" />
+
+                <input
+                    type="text"
+                    class="form-control col-5"
+                    placeholder="Логин"
+                    name="login"
+                    value="{{login}}"
+                    disabled
+                />
+
+                <select class="form-select" name="roleId" disabled>
+                    <option value="{{roleId}}">{{role}}</option>
+                    {{#each ../roles}}
+                        <option value="{{id}}">{{role}}</option>
+                    {{/each}}
+                </select>
+
+                <button
+                    class="btn btn-outline-danger"
+                    type="submit"
+                    formaction="/accounts/delete"
+                >Удалить</button>
+            </div>
+        </form>
+    {{/each}}
+</div>
+
+<script src="/accounts.js"></script>

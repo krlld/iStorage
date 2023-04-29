@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Сумма</th>
+            <th>Процент от общей суммы</th>
+            <th>Группа</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each catalog}}
+            <tr class="{{#ifEquals group "A"}}table-success{{/ifEquals}} {{#ifEquals group "B"}}table-warning{{/ifEquals}} {{#ifEquals group "C"}}table-danger{{/ifEquals}}">
+                <td>{{id}}</td>
+                <td>{{CatalogName}}</td>
+                <td>{{sum}}</td>
+                <td>{{percent}}</td>
+                <td>{{group}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

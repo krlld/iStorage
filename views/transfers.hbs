@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Количество</th>
+            <th>Дата</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each catalog}}
+            <tr class="{{#ifEquals action "Поступление"}}table-success{{/ifEquals}}{{#ifEquals action "Выбытие"}}table-danger{{/ifEquals}}">
+                <td>{{id}}</td>
+                <td>{{CatalogName}}</td>
+                <td>{{count}}</td>
+                <td>{{orderDate}}</td>
+                <td>{{action}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

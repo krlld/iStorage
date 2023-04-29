@@ -1,0 +1,41 @@
+<div
+    class="position-absolute top-50 start-50 translate-middle border border-success p-3 border-opacity-25 rounded"
+>
+    <p class="fs-2 mb-1">Авторизация</p>
+
+    <form class="mb-0" method="post" id="form">
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="login">Логин</label>
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Логин"
+                maxlength="255"
+                name="login"
+                id="login"
+                required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="password">Пароль</label>
+            <input
+                type="password"
+                class="form-control"
+                placeholder="Пароль"
+                max="255"
+                name="password"
+                id="password"
+                required
+            />
+        </div>
+
+        <button
+            class="btn btn-outline-success"
+            type="submit"
+            formaction="/authentication"
+        >Войти</button>
+    </form>
+</div>
+
+<script src="/login.js"></script>

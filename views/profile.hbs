@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <p class="fs-2">Ваши данные</p>
+    <form method="post" id="form">
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="login">Логин</label>
+            <input
+                type="text"
+                class="form-control col-10"
+                id="login"
+                value="{{token.login}}"
+                maxlength="255"
+                disabled
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="hashPassword">Хеш пароля</label>
+            <input
+                type="text"
+                class="form-control col-10"
+                id="hashPassword"
+                value="{{token.hashPassword}}"
+                maxlength="255"
+                disabled
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="hashPassword">Роль</label>
+            <input
+                type="text"
+                class="form-control col-10"
+                id="hashPassword"
+                value="{{token.role}}"
+                disabled
+            />
+        </div>
+
+        <button
+            class="btn btn-outline-warning"
+            type="submit"
+            formaction="/authentication/exit"
+        >Выйти</button>
+    </form>
+</div>

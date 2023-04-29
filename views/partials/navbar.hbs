@@ -1,0 +1,136 @@
+{{#ifEquals role "Admin"}}
+<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary mb-2">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">DkStorage</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Переключатель навигации"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isHome}}active{{/if}}" aria-current="page" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isInventory}}active{{/if}}" href="/inventory">Каталог</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle {{#if ../isAdd}}active{{/if}}"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        Добавить
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/categories">Добавить категорию</a></li>
+                        <li><a class="dropdown-item" href="/catalog">Добавить новый товар</a></li>
+                        <li><a class="dropdown-item" href="/accounts">Регистрация</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle {{#if ../isStatistics}}active{{/if}}"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        Статистика
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/transfers">Движения товара</a></li>
+                        <li><a class="dropdown-item" href="/abcStatistics">ABC анализ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isProfile}}active{{/if}}" aria-current="page" href="/profile">Профиль</a>
+                </li>
+            </ul>
+            <form action="{{#if ../isCategories}}/categories
+                        {{else if ../isCatalog}}/catalog
+                        {{else if ../isAccounts}}/accounts
+                        {{else}}/inventory{{/if}}" class="d-flex" role="search" method="get">
+                <input
+                    class="form-control me-2"
+                    type="search"
+                    maxlength="255"
+                    name="request"
+                    placeholder="Поиск"
+                    aria-label="Поиск"
+                />
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+        </div>
+    </div>
+</nav>
+{{/ifEquals}}
+
+{{#ifEquals role "User"}}
+<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary mb-2">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">DkStorage</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Переключатель навигации"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isHome}}active{{/if}}" aria-current="page" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isInventory}}active{{/if}}" href="/inventory">Каталог</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle {{#if ../isStatistics}}active{{/if}}"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        Статистика
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/transfers">Движения товара</a></li>
+                        <li><a class="dropdown-item" href="/abcStatistics">ABC анализ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if ../isProfile}}active{{/if}}" aria-current="page" href="/profile">Профиль</a>
+                </li>
+            </ul>
+            <form action="/inventory" class="d-flex" role="search" method="get">
+                <input
+                    class="form-control me-2"
+                    type="search"
+                    maxlength="255"
+                    name="request"
+                    placeholder="Поиск"
+                    aria-label="Поиск"
+                />
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+        </div>
+    </div>
+</nav>
+{{/ifEquals}}
+
+<div style="margin-bottom: 55px">⠀</div>

@@ -1,0 +1,164 @@
+<div class="container-fluid">
+    <form action="/catalog/add" method="post">
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="categoryId">Категория</label>
+            <select class="form-select" name="categoryId" required>
+                {{#each categories}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="name">Название</label>
+            <input
+                type="text"
+                maxlength="255"
+                class="form-control col-10"
+                placeholder="Введите название"
+                name="name"
+                required
+            />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="price">Цена</label>
+            <input
+                type="number"
+                min="0"
+                step="0.01"
+                maxlength="11"
+                class="form-control col-10"
+                placeholder="Введите цену"
+                name="price"
+                required
+            />
+            <label class="input-group-text" for="price">BYN</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="src">URL изображения</label>
+            <input type="url" maxlength="255" class="form-control col-10" placeholder="Введите ссылку" name="src" />
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text col-2" for="src">Описание</label>
+            <textarea
+                type="text"
+                maxlength="255"
+                class="form-control col-10"
+                placeholder="Введите описание"
+                name="description"
+            ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+{{#each catalog}}
+<div class="col" id="{{id}}">
+        <div class="card">
+            <div style="height: 250px">
+                <img src="{{src}}" class="card-img-top img-thumbnail p-2" style="width: 100%; height: 100%; object-fit: contain;"/>
+            </div>
+            <div class="card-body">
+                <form method="post" name="table" class="m-0">
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="id{{id}}">ID</label>
+                    <input
+                        type="number"
+                        class="form-control col-10"
+                        name="id"
+                        id="id{{id}}"
+                        value="{{id}}"
+                        disabled
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="categoryId{{id}}">Категория</label>
+                    <select class="form-select" name="categoryId" id="categoryId{{id}}" required>
+                        <option value="{{categoryId}}">{{category}}</option>
+                        {{#each ../categories}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="name{{id}}">Название</label>
+                    <input
+                        type="text"
+                        maxlength="255"
+                        class="form-control col-10"
+                        placeholder="Введите название"
+                        name="name"
+                        id="name{{id}}"
+                        value="{{name}}"
+                        required
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="price{{id}}">Цена</label>
+                    <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        maxlength="11"
+                        class="form-control col-10"
+                        placeholder="Введите цену"
+                        name="price"
+                        id="price{{id}}"
+                        value="{{price}}"
+                        required
+                    />
+                    <label class="input-group-text" for="price{{id}}">BYN</label>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="src{{id}}">URL изображения</label>
+                    <input
+                        type="url"
+                        maxlength="255"
+                        class="form-control col-10"
+                        placeholder="Введите ссылку"
+                        name="src"
+                        id="src{{id}}"
+                        value="{{src}}"
+                    />
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-2" for="description{{id}}">Описание</label>
+                    <textarea
+                        type="text"
+                        maxlength="255"
+                        class="form-control col-10"
+                        placeholder="Введите описание"
+                        name="description"
+                        id="description{{id}}"
+                        value="{{description}}"
+                    >{{description}}</textarea>
+                </div>
+
+                <div class="input-group">
+                    <button formaction="/catalog/update" class="btn btn-outline-warning" type="submit">
+                        Обновить
+                    </button>
+                    <button formaction="/catalog/delete" class="btn btn-outline-danger" type="submit">
+                        Удалить
+                    </button>
+                </div>
+                </div>
+                </form>
+        </div>
+        </div>
+{{/each}}
+</div>
+</div>
+
+<script src="/catalog.js"></script>

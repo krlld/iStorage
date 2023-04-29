@@ -1,0 +1,164 @@
+<form action="/inventory" method="get">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item px-0">
+            <p class="fw-bold mb-2">Поиск</p>
+            <input
+                class="form-control"
+                type="search"
+                maxlength="255"
+                name="request"
+                placeholder="Поиск"
+            />
+        </li>
+        <li class="list-group-item px-0">
+            <p class="fw-bold mb-2">Сортировать</p>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="date_desc"
+                    value="Catalog.id desc"
+                />
+                <label class="form-check-label" for="date_desc">
+                    По дате (от нового)
+                </label>
+            </div>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="date_asc"
+                    value="Catalog.id asc"
+                />
+                <label class="form-check-label" for="date_asc">
+                    По дате (от старого)
+                </label>
+            </div>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="price_desc"
+                    value="price desc"
+                />
+                <label class="form-check-label" for="price_desc">
+                    По цене (от дорогого)
+                </label>
+            </div>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="price_asc"
+                    value="price asc"
+                />
+                <label class="form-check-label" for="price_asc">
+                    По цене (от дешевого)
+                </label>
+            </div>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="count_desc"
+                    value="sum desc"
+                />
+                <label class="form-check-label" for="count_desc">
+                    По количеству (от наибольшего)
+                </label>
+            </div>
+            <div class="form-check mb-0">
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sort"
+                    id="count_asc"
+                    value="sum asc"
+                />
+                <label class="form-check-label" for="count_asc">
+                    По количеству (от наименьшего)
+                </label>
+            </div>
+        </li>
+        <li class="list-group-item px-0">
+            <p class="fw-bold mb-2">Категория</p>
+            {{#each categories}}
+                <div class="form-check mb-0">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="categoryId"
+                        id="radio{{id}}"
+                        value="{{id}}"
+                    />
+                    <label class="form-check-label" for="radio{{id}}">
+                        {{name}}
+                    </label>
+                </div>
+            {{/each}}
+        </li>
+        <li class="list-group-item px-0">
+            <p class="fw-bold mb-2">Цена</p>
+            <div class="input-group mb-2">
+                <label class="input-group-text" for="minPrice">От</label>
+                <input
+                    type="number"
+                    name="minPrice"
+                    step="0.01"
+                    min="0"
+                    maxlength="11"
+                    id="minPrice"
+                    class="form-control"
+                    placeholder="От"
+                />
+            </div>
+            <div class="input-group mb-0">
+                <label class="input-group-text" for="maxPrice">До</label>
+                <input
+                    type="number"
+                    name="maxPrice"
+                    step="0.01"
+                    min="0"
+                    maxlength="11"
+                    id="maxPrice"
+                    class="form-control"
+                    placeholder="До"
+                />
+            </div></li>
+        <li class="list-group-item px-0">
+            <p class="fw-bold mb-2">Количество</p>
+            <div class="input-group mb-2">
+                <label class="input-group-text" for="minCount">От</label>
+                <input
+                    type="number"
+                    name="minCount"
+                    min="0"
+                    maxlength="9"
+                    id="minCount"
+                    class="form-control"
+                    placeholder="От"
+                />
+            </div>
+            <div class="input-group mb-0">
+                <label class="input-group-text" for="maxCount">До</label>
+                <input
+                    type="number"
+                    name="maxCount"
+                    min="0"
+                    maxlength="9"
+                    id="maxCount"
+                    class="form-control"
+                    placeholder="До"
+                />
+            </div>
+        </li>
+        <li class="list-group-item px-0">
+            <button class="btn btn-outline-primary" type="submit">Показать результаты</button>
+        </li>
+    </ul>
+</form>

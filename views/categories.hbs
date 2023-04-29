@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <form method="post">
+        <div class="input-group mb-3">
+            <label class="input-group-text col-1" for="name">Название</label>
+            <input
+                type="text"
+                maxlength="255"
+                class="form-control"
+                placeholder="Введите название категории"
+                name="name"
+                required
+            />
+            <button
+                formaction="/categories/add"
+                type="submit"
+                class="btn btn-success col-1"
+            >Добавить</button>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-1"><p class="fw-bold mb-1">ID</p></div>
+        <div class="col-9"><p class="fw-bold mb-1">Название</p></div>
+        <div class="col-2"><p class="fw-bold mb-1">Действие</p></div>
+    </div>
+    {{#each categories}}
+        <form method="post" name="table" id="{{id}}">
+            <div class="input-group">
+                <label class="input-group-text col-1">{{id}}</label>
+                <input type="hidden" name="id" value="{{id}}" />
+                <input
+                    type="text"
+                    class="form-control col-9"
+                    placeholder="Введите название категории"
+                    name="name"
+                    value="{{name}}"
+                    required
+                />
+                <button
+                    formaction="/categories/update"
+                    class="btn btn-outline-warning col-1"
+                    type="submit"
+                >Обновить</button>
+                <button
+                    formaction="/categories/delete"
+                    class="btn btn-outline-danger col-1"
+                    type="submit"
+                >Удалить</button>
+            </div>
+        </form>
+    {{/each}}
+</div>
+
+<script src="/categories.js"></script>
