@@ -1,20 +1,20 @@
 // mysql
-const mysql = require("mysql");
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "12345678",
-    database: "sys",
+  host: 'localhost',
+  user: 'root',
+  password: '12345678',
+  database: 'sys',
 });
 
-connection.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log('Connected!');
 });
 
 connection.query(
-    `create table if not exists Categories
+  `create table if not exists Categories
 (
     id int not null auto_increment,
     name varchar(255) not null,
@@ -23,7 +23,7 @@ connection.query(
 );
 
 connection.query(
-    `create table if not exists Catalog
+  `create table if not exists Catalog
 (
     id int not null auto_increment,
     categoryId int not null,
@@ -37,7 +37,7 @@ connection.query(
 );
 
 connection.query(
-    `create table if not exists Inventory 
+  `create table if not exists Inventory 
 (
     id int not null auto_increment,
     catalogId int not null,
@@ -55,7 +55,7 @@ connection.query(
 // `);
 
 connection.query(
-    `create table if not exists Roles 
+  `create table if not exists Roles 
 (
     id int not null auto_increment,
     role varchar(255) not null,
@@ -64,7 +64,7 @@ connection.query(
 );
 
 connection.query(
-    `create table if not exists Users 
+  `create table if not exists Users 
 (
     id int not null auto_increment,
     login varchar(255) not null,

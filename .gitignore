@@ -1,3 +1,4 @@
 todo.txt
-node_modules/
+node_modules
+.gitignore
 .DS_Store

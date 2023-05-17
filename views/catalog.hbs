@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid pt-3">
+    <p class="fs-2">Добавление нового товара</p>
+
     <form action="/catalog/add" method="post">
         <div class="input-group mb-3">
             <label class="input-group-text col-2" for="categoryId">Категория</label>
@@ -61,8 +63,8 @@
 {{#each catalog}}
 <div class="col" id="{{id}}">
         <div class="card">
-            <div style="height: 250px">
-                <img src="{{src}}" class="card-img-top img-thumbnail p-2" style="width: 100%; height: 100%; object-fit: contain;"/>
+            <div class="cardDiv">
+                <img src="{{src}}" class="card-img-top img-thumbnail p-2 cardImage"/>
             </div>
             <div class="card-body">
                 <form method="post" name="table" class="m-0">

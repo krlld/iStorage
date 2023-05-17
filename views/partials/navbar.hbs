@@ -1,5 +1,5 @@
 {{#ifEquals role "Admin"}}
-<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary mb-2">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark mb-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">DkStorage</a>
         <button
@@ -33,8 +33,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/categories">Добавить категорию</a></li>
-                        <li><a class="dropdown-item" href="/catalog">Добавить новый товар</a></li>
-                        <li><a class="dropdown-item" href="/accounts">Регистрация</a></li>
+                        <li><a class="dropdown-item" href="/catalog">Добавить товар</a></li>
+                        <li><a class="dropdown-item" href="/accounts">Добавить пользователя</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -59,7 +59,7 @@
             <form action="{{#if ../isCategories}}/categories
                         {{else if ../isCatalog}}/catalog
                         {{else if ../isAccounts}}/accounts
-                        {{else}}/inventory{{/if}}" class="d-flex" role="search" method="get">
+                        {{else}}/inventory{{/if}}" class="d-flex mt-2 mb-2" role="search" method="get">
                 <input
                     class="form-control me-2"
                     type="search"
@@ -76,7 +76,7 @@
 {{/ifEquals}}
 
 {{#ifEquals role "User"}}
-<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary mb-2">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark mb-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">DkStorage</a>
         <button
@@ -117,7 +117,7 @@
                     <a class="nav-link {{#if ../isProfile}}active{{/if}}" aria-current="page" href="/profile">Профиль</a>
                 </li>
             </ul>
-            <form action="/inventory" class="d-flex" role="search" method="get">
+            <form action="/inventory" class="d-flex mt-2 mb-2" role="search" method="get">
                 <input
                     class="form-control me-2"
                     type="search"
@@ -133,4 +133,4 @@
 </nav>
 {{/ifEquals}}
 
-<div style="margin-bottom: 55px">⠀</div>
+<div class="navBarEnd">⠀</div>
